@@ -1,4 +1,4 @@
-<%= form_for(@question) do |f| %>
+<%= form_for(@question) do |question_form| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -12,10 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :wording %><br />
-    <%= f.text_field :wording %>
+    <%= question_form.label :wording %><br />
+    <%= question_form.text_area :wording %>
   </div>
+
+  <%= question_form.fields_for :options do |option_form| %>
+	  <%= option_form.hidden_field :position %> 
+	  <h3>Option <%= option_form.object.position + 1 %></h3>	
+	  <div class="field">
+	    <%= option_form.label :wording %><br />
+	    <%= option_form.text_field :wording %>
+	  </div>
+
+  <% end %>
+
+
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= question_form.submit %>
   </div>
 <% end %>

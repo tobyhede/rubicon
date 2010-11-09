@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Wording:</b>
-  <%= @question.wording %>
-</p>
+<h2><%= @question.wording %></h2>
+
+<h3>Options</h3>
+<ul>
+	<% @question.options.each do |option| %>
+	<li><%= option.wording %></li>
+	<% end %>
+</ul>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |

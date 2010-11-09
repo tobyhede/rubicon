@@ -1,6 +1,6 @@
-class CreateQuestionOptions < ActiveRecord::Migration
+class CreateOptions < ActiveRecord::Migration
   def self.up
-    create_table :question_options do |t|
+    create_table :options do |t|
       t.references :question
       t.integer :position
       t.boolean :correct
@@ -11,6 +11,6 @@ class CreateQuestionOptions < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :question_options
+    drop_table :options
   end
 end

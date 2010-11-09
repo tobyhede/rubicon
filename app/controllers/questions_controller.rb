@@ -26,6 +26,11 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
 
+    # @question.question_options << QuestionOption.new( :wording => "Home")
+    4.times do |position|
+        @question.options.build(:position => position)
+     end    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @question }
@@ -42,6 +47,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
 
+    logger.debug("================")
+    logger.debug @question.options.inspect
+    
     respond_to do |format|
       if @question.save
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }

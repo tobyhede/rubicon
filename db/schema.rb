@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(:version => 20101109204307) do
 
-  create_table "question_options", :force => true do |t|
+  create_table "options", :force => true do |t|
     t.integer  "question_id"
     t.integer  "position"
     t.boolean  "correct"
