@@ -1,6 +1,12 @@
 
 
-
+th {
+	text-align:left;
+}
+th:first-child {
+	min-width:400px;
+	padding-right:1em;
+}
 
 #question_wording {
 	height:100px;
