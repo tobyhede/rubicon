@@ -46,9 +46,6 @@ class QuestionsController < ApplicationController
   # POST /questions.xml
   def create
     @question = Question.new(params[:question])
-
-    logger.debug("================")
-    logger.debug @question.options.inspect
     
     respond_to do |format|
       if @question.save
